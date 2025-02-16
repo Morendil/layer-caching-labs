@@ -19,6 +19,7 @@ jobs:
           context: .
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          load: true
 
       - name: Run the app
         run: docker compose run app
