@@ -1,0 +1,13 @@
+services:
+
+  redis:
+    image: redis:5
+
+  app:
+    build:
+      context: .
+      target: app-image
+    volumes:
+      - .:/app
+    depends_on:
+        - redis

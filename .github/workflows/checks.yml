@@ -1,0 +1,12 @@
+name: My CI Workflow
+
+on: push
+
+jobs:
+  some-docker-thing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Run the app
+        run: docker compose run app
