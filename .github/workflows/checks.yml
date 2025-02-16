@@ -6,7 +6,16 @@ jobs:
   some-docker-thing:
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Build, cache or push Docker images
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
       - name: Run the app
         run: docker compose run app
