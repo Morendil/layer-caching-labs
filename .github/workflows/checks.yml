@@ -17,7 +17,9 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          cache-from: type=gha
+          cache-from: |
+            type=gha
+            type=registry,ref=redis:5
           cache-to: type=gha,mode=max
           load: true
 
